@@ -18,4 +18,11 @@ class LoginController extends AbstractController
         $url = $this->generateUrl('home_page', ['nom'=>'Tounsi']);
         return $this->redirect($url); // au lieu de "return new RedirectResponse($url);"
     }
+    /**
+     * @Route("/login/filter", name="filter")
+     */
+    public function index2(): Response
+    {
+        return $this->render('login/index.html.twig');
+    }
 }

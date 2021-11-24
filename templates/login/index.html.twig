@@ -9,12 +9,21 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+{% set fruits = [
+    { name: 'Apples', quantity: 5 },
+    { name: 'Oranges', quantity: 2 },
+    { name: 'Grapes', quantity: 4 },
+] %}
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'D:/laragon/www/premier_projet_symfony/src/Controller/LoginController.php'|file_link(0) }}">src/Controller/LoginController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'D:/laragon/www/premier_projet_symfony/templates/login/index.html.twig'|file_link(0) }}">templates/login/index.html.twig</a></code></li>
-    </ul>
+<table border="1">
+<tr><th>Fruit name</th><th>Quantity</th></tr>
+
+{%  for fruit in fruits|sort((fruit)=>fruit.quantity) %}
+ <tr><td>{{ fruit.name}}</td><td>{{fruit.quantity}}</td></tr>
+{% endfor %}
+</table>
+
+{{ 'WELCOME'|lower|capitalize }} {#affiche Welcome #}
+
 </div>
 {% endblock %}

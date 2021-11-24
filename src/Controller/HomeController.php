@@ -23,7 +23,7 @@ class HomeController extends AbstractController
      */
     public function index2(?string $nom, ?int $age): Response
     {
-        if (!isset($age) || !isset($age)) {
+        if (!isset($nom) || !isset($age)) {
             throw new HttpException(404, 'On ne peut vous afficher la page de cette personne');
             }
         return $this->render('home/index.html.twig', [
